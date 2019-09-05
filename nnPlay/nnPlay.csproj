@@ -72,9 +72,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TypeScriptSoruce\LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TypeScriptSoruce\dataset.ts" />
+    <Content Include="TypeScriptSoruce\heatmap.ts" />
+    <Content Include="TypeScriptSoruce\linechart.ts" />
+    <Content Include="TypeScriptSoruce\nn.ts" />
+    <Content Include="TypeScriptSoruce\playground.ts" />
+    <Content Include="TypeScriptSoruce\seedrandom.d.ts" />
+    <Content Include="TypeScriptSoruce\state.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
