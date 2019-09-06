@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Activations.cs" />
+    <Compile Include="classes\Neuron.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
