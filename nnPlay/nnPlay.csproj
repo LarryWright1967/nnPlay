@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Notes.txt" />
     <Content Include="TypeScriptSoruce\dataset.ts" />
     <Content Include="TypeScriptSoruce\heatmap.ts" />
     <Content Include="TypeScriptSoruce\linechart.ts" />

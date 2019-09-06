@@ -1,0 +1,11 @@
+﻿
+
+Andrej Karpaths 
+	Stanford CS231 lecture
+	Yes you should understand backprop
+
+Nikolas Markou
+	The Black Magic of Deep Learning
+
+https://youtu.be/ILsA4nyG7I0
+
