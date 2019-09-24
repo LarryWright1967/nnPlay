@@ -1,4 +1,7 @@
 ﻿
+Thanks to 
+	Google Inc.
+	
 
 Andrej Karpaths 
 	Stanford CS231 lecture
@@ -8,4 +11,5 @@ Nikolas Markou
 	The Black Magic of Deep Learning
 
 https://youtu.be/ILsA4nyG7I0
+https://youtu.be/kft1AJ9WVDk
 

@@ -15,6 +15,12 @@ namespace nnPlay
         public Form1()
         {
             InitializeComponent();
+            this.Shown += Form1_Shown;
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+
         }
     }
 }
