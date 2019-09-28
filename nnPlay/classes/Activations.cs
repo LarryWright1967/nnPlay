@@ -16,6 +16,8 @@ namespace nnPlay
     //return output * (1 - output);
     //}
     //};
+    //σ(x)⋅(1−σ(x))
+    // x*(1-x)?
     public static class Activations
     {
         public static double Sigmoid(double inputValue)
