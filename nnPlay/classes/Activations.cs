@@ -24,13 +24,9 @@ namespace nnPlay
         {
             return 1 / (1 + Math.Exp(-inputValue));
         }
-        public static double ReverseSigmoid1(double error)
+        public static double ReverseSigmoid(double output) // gradient
         {
-            return double.NaN;
-        }
-        public static double ReverseSigmoid2(double error)
-        {
-            return double.NaN;
+            return output * (1.0 - output);
         }
     }
 }

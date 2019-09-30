@@ -8,13 +8,16 @@ namespace nnPlay
 {
     public class Layer
     {
-        Neuron[] neurons;
-        public Layer(int neuronCount)
+        public List<Neuron> Neurons = new List<Neuron>();
+        public Layer()
         {
-            for(int i = 0; i < neuronCount; i++)
-            {
 
-            }
         }
+
+        public void AddNeuron()
+        {
+            Neurons.Add(new Neuron());
+        }
+
     }
 }

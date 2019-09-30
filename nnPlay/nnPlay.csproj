@@ -52,6 +52,7 @@
     <Compile Include="classes\InputAndDataFunctions.cs" />
     <Compile Include="classes\layer.cs" />
     <Compile Include="classes\MacPoint.cs" />
+    <Compile Include="classes\Network.cs" />
     <Compile Include="classes\Neuron.cs" />
     <Compile Include="classes\StuffFromNN.cs" />
     <Compile Include="Form1.cs">
