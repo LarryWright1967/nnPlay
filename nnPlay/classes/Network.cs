@@ -11,24 +11,25 @@ using System.Threading.Tasks;
  * 
  */
 
-namespace nnPlay.classes
+namespace nnPlay
 {
-    class Network
+    public class Network
     {
-        List<Layer> layers = new List<Layer>();
+        private List<Layer> layers = new List<Layer>();
+        public List<Layer> getLayers() { return new List<Layer>(layers); }
         public Network()
         {
 
         }
 
-        public void AddLayer(int NeuronCount)
+        public void AddLayer(List<Neuron> neurons)
         {
-            int index = layers.Count;
-            layers.Add(new Layer());
-            for(int c = 0; c < NeuronCount; c++)
-            {
-                layers[index].AddNeuron();
-            }
+            //int index = layers.Count;
+            //layers.Add(new Layer(6));
+            //for(int c = 0; c < NeuronCount; c++)
+            //{
+            //    layers[index].AddNeuron();
+            //}
         }
 
         public void Forward()

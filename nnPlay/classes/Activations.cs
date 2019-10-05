@@ -28,5 +28,13 @@ namespace nnPlay
         {
             return output * (1.0 - output);
         }
+        public static double Relu(double inputValue)
+        {
+            if (inputValue > 0) { return inputValue; } else { return 0; }
+        }
+        public static double ReverseReLu(double output) // gradient
+        {
+            if (output > 0) { return 1; } else { return 0; }
+        }
     }
 }

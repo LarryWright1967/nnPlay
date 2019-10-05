@@ -20,9 +20,9 @@ namespace nnPlay
 
         public double OutputValue { get; set; }
 
-        public Neuron()
+        public Neuron(List<double> weights)
         {
-
+            
         }
 
         public void AddInput() // previous layer outputs
