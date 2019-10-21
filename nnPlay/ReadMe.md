@@ -1,5 +1,18 @@
 ﻿
 
+201910200936
+I was thinking about how to solve a couple of issues I have with the nn and the cnn. The basic issues I have
+probably relate to the fact that I don't understand the math. I don't know how the back propigation works in 
+general and specifically how it relates to the cnns. I hear stuff about derivitives and activation formullas 
+and error formulas and the fact that without these formulas the equations would be linear and not "learn". I 
+see this to some extent, But I don't really understand it. So this is my current thinking, based on the little 
+I understand. 
+ - each "learn" operation will correct only ~50%? of the values using a random function
+ - every pixel of a cnn will essentially be a neuron
+ - each neuron will remember the previous weight change and the resulting change in error to compute the next 
+ weight change.
+
+
 @genekogan
 https://genekogan.com/
 https://ml4a.github.io/

@@ -17,6 +17,7 @@ namespace nnPlay
         public double GetWeight(int index) { return weights[index]; }
         public void SetWeight(int index, double value) { weights[index] = value; }
 
+        private double LastErrorRate { get; set; }
 
         public double OutputValue { get; set; }
 
