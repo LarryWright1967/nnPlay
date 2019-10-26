@@ -32,6 +32,10 @@ namespace nnPlay
             t.Interval = 333;
             t.Tick += T_Tick;
             t.Start();
+            Set(this, () =>
+            {
+                ssl1.Text = "Generating Data.";
+            });
         }
 
         private void T_Tick(object sender, EventArgs e)
@@ -41,6 +45,13 @@ namespace nnPlay
                 label2.Text = bools.Count().ToString();
                 label3.Text = dubs.Count().ToString();
                 label4.Text = (dubs.ReturnOneValue() * 255.0).ToString();
+                if (bools.Count() < 100000 || dubs.Count() < 100000)
+                {
+                    //Set(this, () =>
+                    //{
+                    //    ssl1.Text = "Waiting on random doubles.";
+                    //});
+                }
             });
         }
 
@@ -60,21 +71,73 @@ namespace nnPlay
         {
             Task.Run(() =>
             {
-                int xSz = 255;
-                int ySz = 255;
-                Bitmap bm = new Bitmap(xSz, ySz, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                for (int x = 0; x < xSz; x++)
+                int xSz = 20;
+                int ySz = 20;
+                int i = 0;
+                int r;
+                int g;
+                int b;
+
+                Set(this, () =>
                 {
-                    for (int y = 0; y < ySz; y++)
+                    pictureBox1.Size = new Size(xSz * 8, ySz * 8);
+                });
+
+                Bitmap bm = new Bitmap(xSz, ySz, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+                // grab random values
+                int need = xSz * ySz * 3;
+                bool enough = false;
+
+                // ensure that enough values are available
+                while (!enough)
+                {
+                    if (dubs.Count() < need)
                     {
-                        double d = dubs.ReturnOneValue() * 255.0;
-                        int I = (int)(Math.Floor(d));
-                        Set(this, () => {label1.Text = I.ToString(); }); 
-                        Color Col = Color.FromArgb(I, I, I);
+                        Set(this, () =>
+                        {
+                            ssl1.Text = "Waiting on random doubles.";
+                        });
+                        System.Threading.Thread.Sleep(250);
+                    }
+                    else
+                    {
+                        Set(this, () =>
+                        {
+                            ssl1.Text = "Processing...";
+                        });
+                        enough = true;
+                    }
+                }
+
+                // get values;
+                double[] d = dubs.ReturnRangeOfValues(need).ToArray();
+
+                // set bit map values
+                i = -1;
+                for (int y = 0; y < ySz; y++)
+                {
+                    for (int x = 0; x < xSz; x++)
+                    {
+                        //int I = (int)(Math.Floor(d[(x * y) + x] * 255));
+                        i++;
+                        r = (int)(Math.Floor(d[i] * 255));
+                        i++;
+                        g = (int)(Math.Floor(d[i] * 255));
+                        i++;
+                        b = (int)(Math.Floor(d[i] * 255));
+                        Color Col = Color.FromArgb(r, g, b);
                         bm.SetPixel(x, y, Col);
                     }
                 }
-                Set(this, () => { pictureBox1.BackgroundImage = bm; });
+
+                // display bit map
+                Set(this, () =>
+                {
+                    //pictureBox1.BackgroundImage = bm;
+                    pictureBox1.Image = bm;
+                    ssl1.Text = "Generating Data.";
+                });
                 //pictureBox2.BackgroundImage = bm;
                 //pictureBox3.BackgroundImage = bm; 
             });

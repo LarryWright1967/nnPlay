@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RandGen
@@ -35,7 +36,24 @@ namespace RandGen
                 else { System.Threading.Thread.Sleep(20); }
                 if (loopcount > 100) break;
             }
-            return RandBools.ExtractOne(0);
+            return RandBools.ExtractOne();
+        }
+
+        public List<bool> ReturnRangeOfValues(int count)
+        {
+            bool notdone = true;
+            int loopcount = 0;
+            while (notdone)
+            {
+                loopcount++;
+                if (RandBools.Count() > count)
+                {
+                    notdone = false;
+                }
+                else { System.Threading.Thread.Sleep(20); }
+                if (loopcount > 100) break;
+            }
+            return RandBools.ExtractMany(count);
         }
 
         public void GenRand()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RandGen
@@ -35,39 +36,60 @@ namespace RandGen
                 else { System.Threading.Thread.Sleep(20); }
                 if (loopcount > 100) break;
             }
-            return RandDubVals.ExtractOne(0);
+            return RandDubVals.ExtractOne();
         }
+
+        public List<double> ReturnRangeOfValues(int count)
+        {
+            bool notdone = true;
+            int loopcount = 0;
+            while (notdone)
+            {
+                loopcount++;
+                if (RandDubVals.Count() > count)
+                {
+                    notdone = false;
+                }
+                else { System.Threading.Thread.Sleep(20); }
+                if (loopcount > 100) break;
+            }
+            return RandDubVals.ExtractMany(count);
+        }
+
 
         public void GenRand()
         {
             if (run == true) return;
             run = true;
-            for (int i = 1; i <= 12; i++)
+            Task.Run(() =>
             {
-                Task.Run(() =>
+                for (int i = 1; i <= 30; i++)
                 {
-                    while (run)
+                    Task.Run(() =>
                     {
-                        if (RandDubVals.Count() < 1000000) // keep 10000 entries in the bank
-                    {
-                            decimal d = RandStruct1.GetRand();
-                            if (d <= (RandStruct1.valueRange * RandStruct1.multiplyer) && d >= 0m)
-                            {
-                                temp = (double)d / 1000000000000.0;
-                                if (temp < 1.0 && temp > 0.0)
+                        while (run)
+                        {
+                            if (RandDubVals.Count() < 1000000) // keep 10000 entries in the bank
+                        {
+                                decimal d = RandStruct1.GetRand();
+                                if (d <= (RandStruct1.valueRange * RandStruct1.multiplyer) && d >= 0m)
                                 {
-                                    RandDubVals.Add(temp);
+                                    temp = (double)d / 1000000000000.0;
+                                    if (temp < 1.0 && temp > 0.0)
+                                    {
+                                        RandDubVals.Add(temp);
+                                    }
                                 }
-                            }
                             //System.Threading.Thread.Sleep(1);
                         }
-                        else
-                        {
-                            System.Threading.Thread.Sleep(100);
+                            else
+                            {
+                                System.Threading.Thread.Sleep(100);
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
+            });
         }
 
         #region IDisposable Support

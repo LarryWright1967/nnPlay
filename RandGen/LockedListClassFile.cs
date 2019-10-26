@@ -59,6 +59,33 @@ namespace RandGen
                 return item;
             }
         }
+        public T ExtractOne()
+        {
+            lock (tLock)
+            {
+                var item = tList[0];
+                tList.RemoveAt(0);
+                return item;
+            }
+        }
+        public List<T> ExtractMany(int index, int count)
+        {
+            lock (tLock)
+            {
+                var item = tList.GetRange(index, count);
+                tList.RemoveRange(index, count);
+                return item;
+            }
+        }
+        public List<T> ExtractMany(int count)
+        {
+            lock (tLock)
+            {
+                var item = tList.GetRange(0, count);
+                tList.RemoveRange(0, count);
+                return item;
+            }
+        }
         public List<T> Copy()
         {
             lock (tLock)
