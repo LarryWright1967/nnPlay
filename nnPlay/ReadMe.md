@@ -30,12 +30,13 @@ https://youtu.be/d14TUNcbn1k?t=1331
 an exponential function gredient is e-1 or 0.367879441171442321
 
 201910281016 update
+https://datascience.stackexchange.com/questions/18968/how-does-backpropagation-works-through-max-pooling-layer-when-doing-a-batch
 How to perform backpropagation on a max pooling layer.
 Only the value that is the max is important do the derivative of this value is 1 for this
 pixel, all others are 0. Another way to express this is to pass the gradient from the pevious
 layer only to the weight on the max pixel and ignore all of the others.
 
-How to write 3 as super set
+How to write 3 as super set?
 √
 ∂
 ∑
