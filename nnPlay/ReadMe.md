@@ -1,5 +1,13 @@
 ﻿
 
+I'm not sure if it maters but at leaset one example I'm reading about is suggesting that each individual backprop
+through the network should be handeled individually. This means that as each layer is computed each backprop to the 
+previous node must be saved in the node. This would imply an array of backprop values that should be computed and 
+transfered to the previous layer. This would also imply that the calculations become exponential with the layers 
+and neuron count. It seams that if possible each node should have it's gradient compiled to avoide un-necessary 
+calculations. This will only work however, if all of the same nurons are active for all calculations in this 
+sequence. Implying that this can not be done for batches.
+
 201910271400
 Two items I'm not sure how to handle.
  - do I update all of the weights of each convolution based on the backpropagation or only for those instances
@@ -20,6 +28,18 @@ the gredient of ether input to a multiplication is the other value of the multip
 
 https://youtu.be/d14TUNcbn1k?t=1331
 an exponential function gredient is e-1 or 0.367879441171442321
+
+201910281016 update
+How to perform backpropagation on a max pooling layer.
+Only the value that is the max is important do the derivative of this value is 1 for this
+pixel, all others are 0. Another way to express this is to pass the gradient from the pevious
+layer only to the weight on the max pixel and ignore all of the others.
+
+How to write 3 as super set
+√
+∂
+∑
+θ
 
 
 

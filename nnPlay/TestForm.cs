@@ -73,21 +73,21 @@ namespace nnPlay
         {
             Task.Run(() =>
             {
-                int xSz = 3;
-                int ySz = 3;
+                int xSz = 9;
+                int ySz = 9;
                 int r;
                 int g;
                 int b;
 
-                Set(this, () =>
-                {
-                    pictureBox1.Size = new Size(xSz * 8, ySz * 8);
-                });
+                //Set(this, () =>
+                //{
+                //    pictureBox1.Size = new Size(xSz * 8, ySz * 8);
+                //});
 
                 Bitmap bm = new Bitmap(xSz, ySz, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
                 // grab random values
-                int need = xSz * ySz * 3;
+                int need = xSz * ySz /** 3*/;
                 bool enough = false;
 
                 // ensure that enough values are available
@@ -119,10 +119,10 @@ namespace nnPlay
                 {
                     for (int x = 0; x < xSz; x++)
                     {
-                        r = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 0] * 255));
-                        g = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 1] * 255));
-                        b = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 2] * 255));
-                        Color Col = Color.FromArgb(r, g, b);
+                        r = (int)(Math.Floor(d[(y * (xSz/* * 3*/)) + (x/* * 3*/) + 0] * 255));
+                        //g = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 1] * 255));
+                        //b = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 2] * 255));
+                        Color Col = Color.FromArgb(r, r,r/* g, b*/);
                         bm.SetPixel(x, y, Col);
                     }
                 }
@@ -140,7 +140,8 @@ namespace nnPlay
 
         private void GenImgBut_Click(object sender, EventArgs e)
         {
-
+            Bitmap bm = new Bitmap(this.BackgroundImage, new Size(25,20));
+            pictureBox1.Image = bm;
         }
         #region set
         public void Set(Control c, Action a)
