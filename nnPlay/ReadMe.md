@@ -1,5 +1,28 @@
 ﻿
 
+201910271400
+Two items I'm not sure how to handle.
+ - do I update all of the weights of each convolution based on the backpropagation or only for those instances
+ where it is activated?
+ - How do I handle the fact that each convolution (weights) are used over and over again with each filter 
+ process. i.e. if the filter is used 100 times across the image do I backpropagate wtih with the gradient as if 
+ it was 1 or 100 in parallel?
+
+ 201910261322
+https://youtu.be/d14TUNcbn1k?t=1259
+appearently the gredient of 1/x = -1/(x^2)
+
+https://youtu.be/d14TUNcbn1k?t=1441
+the gredient of addition is 1
+
+https://youtu.be/d14TUNcbn1k?t=499
+the gredient of ether input to a multiplication is the other value of the multiplication
+
+https://youtu.be/d14TUNcbn1k?t=1331
+an exponential function gredient is e-1 or 0.367879441171442321
+
+
+
 201910200936
 I was thinking about how to solve a couple of issues I have with the nn and the cnn. The basic issues I have
 probably relate to the fact that I don't understand the math. I don't know how the back propigation works in 

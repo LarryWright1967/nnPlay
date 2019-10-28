@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace nnPlay
     {
         private readonly ListOfRandBools bools = new ListOfRandBools();
         private readonly ListOfRandDouble_ZeroToOne dubs = new ListOfRandDouble_ZeroToOne();
+        private Bitmap inputImage; // x, y; 20, 20 (1600B)
+        private byte[][][] inputData; // x, y; 20, 20 (1200B)
+        private byte[][][] layer1Filters; // x, y, filters; 3, 3, 100 (900B)(27 Inputs)(18 x 18 output)
+        private byte[][][] layer2Filters; // x, y, filters; 3, 3, 100 (900B)(27 Inputs)(16 x 16 output)
+        private byte[][][] layer3Filters; // x, y, filters; 3, 3, 100 (900B)(27 Inputs)(14 x 14 output)
         Timer t;
         public TestForm()
         {
@@ -44,14 +50,14 @@ namespace nnPlay
             {
                 label2.Text = bools.Count().ToString();
                 label3.Text = dubs.Count().ToString();
-                label4.Text = (dubs.ReturnOneValue() * 255.0).ToString();
-                if (bools.Count() < 100000 || dubs.Count() < 100000)
-                {
-                    //Set(this, () =>
-                    //{
-                    //    ssl1.Text = "Waiting on random doubles.";
-                    //});
-                }
+                //label4.Text = (dubs.ReturnOneValue() * 255.0).ToString();
+                //if (bools.Count() < 100000 || dubs.Count() < 100000)
+                //{
+                //    Set(this, () =>
+                //    {
+                //        ssl1.Text = "Waiting on random doubles.";
+                //    });
+                //}
             });
         }
 
@@ -65,15 +71,10 @@ namespace nnPlay
 
         private void ReConvoBut_Click(object sender, EventArgs e)
         {
-        }
-
-        private void GenImgBut_Click(object sender, EventArgs e)
-        {
             Task.Run(() =>
             {
-                int xSz = 20;
-                int ySz = 20;
-                int i = 0;
+                int xSz = 3;
+                int ySz = 3;
                 int r;
                 int g;
                 int b;
@@ -104,7 +105,7 @@ namespace nnPlay
                     {
                         Set(this, () =>
                         {
-                            ssl1.Text = "Processing...";
+                            //ssl1.Text = "Processing...";
                         });
                         enough = true;
                     }
@@ -114,18 +115,13 @@ namespace nnPlay
                 double[] d = dubs.ReturnRangeOfValues(need).ToArray();
 
                 // set bit map values
-                i = -1;
                 for (int y = 0; y < ySz; y++)
                 {
                     for (int x = 0; x < xSz; x++)
                     {
-                        //int I = (int)(Math.Floor(d[(x * y) + x] * 255));
-                        i++;
-                        r = (int)(Math.Floor(d[i] * 255));
-                        i++;
-                        g = (int)(Math.Floor(d[i] * 255));
-                        i++;
-                        b = (int)(Math.Floor(d[i] * 255));
+                        r = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 0] * 255));
+                        g = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 1] * 255));
+                        b = (int)(Math.Floor(d[(y * (xSz * 3)) + (x * 3) + 2] * 255));
                         Color Col = Color.FromArgb(r, g, b);
                         bm.SetPixel(x, y, Col);
                     }
@@ -134,8 +130,7 @@ namespace nnPlay
                 // display bit map
                 Set(this, () =>
                 {
-                    //pictureBox1.BackgroundImage = bm;
-                    pictureBox1.Image = bm;
+                    pictureBox2.Image = bm;
                     ssl1.Text = "Generating Data.";
                 });
                 //pictureBox2.BackgroundImage = bm;
@@ -143,6 +138,10 @@ namespace nnPlay
             });
         }
 
+        private void GenImgBut_Click(object sender, EventArgs e)
+        {
+
+        }
         #region set
         public void Set(Control c, Action a)
         {

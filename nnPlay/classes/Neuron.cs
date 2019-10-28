@@ -17,11 +17,11 @@ namespace nnPlay
         public double GetWeight(int index) { return weights[index]; }
         public void SetWeight(int index, double value) { weights[index] = value; }
 
-        private double LastErrorRate { get; set; }
+        private double NextGradient { get; set; }
 
         public double OutputValue { get; set; }
 
-        public Neuron(List<double> weights)
+        public Neuron(List<double> inputWeights)
         {
             
         }

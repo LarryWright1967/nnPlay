@@ -80,7 +80,6 @@ namespace RandGen
                                         RandDubVals.Add(temp);
                                     }
                                 }
-                            //System.Threading.Thread.Sleep(1);
                         }
                             else
                             {
