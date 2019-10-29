@@ -1,7 +1,7 @@
 ﻿
-201910290544
-Adverserial
-Autoencoder
+201910290544  
+Adverserial  
+Autoencoder  
  
 201910281002
 I'm not sure if it maters but at leaset one example I'm reading about is suggesting that each individual backprop
