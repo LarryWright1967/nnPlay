@@ -1,5 +1,9 @@
 ﻿
-
+201910290544
+Adverserial
+Autoencoder
+ 
+201910281002
 I'm not sure if it maters but at leaset one example I'm reading about is suggesting that each individual backprop
 through the network should be handeled individually. This means that as each layer is computed each backprop to the 
 previous node must be saved in the node. This would imply an array of backprop values that should be computed and 
