@@ -53,6 +53,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.errlbl = new System.Windows.Forms.Label();
+            this.error = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -68,10 +70,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 77);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 118);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 170);
+            this.pictureBox1.Size = new System.Drawing.Size(255, 262);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -79,10 +81,10 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(170, 77);
+            this.pictureBox2.Location = new System.Drawing.Point(255, 118);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(170, 170);
+            this.pictureBox2.Size = new System.Drawing.Size(255, 262);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -90,50 +92,46 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(680, 77);
+            this.pictureBox3.Location = new System.Drawing.Point(1020, 118);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(170, 170);
+            this.pictureBox3.Size = new System.Drawing.Size(255, 262);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // GenImgBut
             // 
-            this.GenImgBut.Location = new System.Drawing.Point(18, 8);
-            this.GenImgBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GenImgBut.Location = new System.Drawing.Point(27, 12);
             this.GenImgBut.Name = "GenImgBut";
-            this.GenImgBut.Size = new System.Drawing.Size(102, 48);
+            this.GenImgBut.Size = new System.Drawing.Size(153, 74);
             this.GenImgBut.TabIndex = 3;
             this.GenImgBut.Text = "GenImg";
             this.GenImgBut.UseVisualStyleBackColor = true;
             // 
             // ReConvoBut
             // 
-            this.ReConvoBut.Location = new System.Drawing.Point(143, 8);
-            this.ReConvoBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReConvoBut.Location = new System.Drawing.Point(214, 12);
             this.ReConvoBut.Name = "ReConvoBut";
-            this.ReConvoBut.Size = new System.Drawing.Size(75, 48);
+            this.ReConvoBut.Size = new System.Drawing.Size(112, 74);
             this.ReConvoBut.TabIndex = 4;
             this.ReConvoBut.Text = "Regenerate Random Convolutions";
             this.ReConvoBut.UseVisualStyleBackColor = true;
             // 
             // ForwardBut
             // 
-            this.ForwardBut.Location = new System.Drawing.Point(245, 8);
-            this.ForwardBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ForwardBut.Location = new System.Drawing.Point(368, 12);
             this.ForwardBut.Name = "ForwardBut";
-            this.ForwardBut.Size = new System.Drawing.Size(75, 48);
+            this.ForwardBut.Size = new System.Drawing.Size(112, 74);
             this.ForwardBut.TabIndex = 5;
             this.ForwardBut.Text = "Forward";
             this.ForwardBut.UseVisualStyleBackColor = true;
             // 
             // ReverseBut
             // 
-            this.ReverseBut.Location = new System.Drawing.Point(345, 8);
-            this.ReverseBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReverseBut.Location = new System.Drawing.Point(518, 12);
             this.ReverseBut.Name = "ReverseBut";
-            this.ReverseBut.Size = new System.Drawing.Size(75, 48);
+            this.ReverseBut.Size = new System.Drawing.Size(112, 74);
             this.ReverseBut.TabIndex = 6;
             this.ReverseBut.Text = "Reverse";
             this.ReverseBut.UseVisualStyleBackColor = true;
@@ -141,40 +139,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(427, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(640, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Rand Dub Count";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(542, 8);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(813, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "label2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(542, 26);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(813, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "label3";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(427, 8);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(640, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.Size = new System.Drawing.Size(131, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Rand Bool Count";
             // 
@@ -185,9 +179,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ssl1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 279);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 429);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(652, 19);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(978, 29);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
@@ -196,7 +191,7 @@
             // 
             this.ssl1.AutoSize = false;
             this.ssl1.Name = "ssl1";
-            this.ssl1.Size = new System.Drawing.Size(318, 14);
+            this.ssl1.Size = new System.Drawing.Size(318, 22);
             this.ssl1.Text = "toolStripStatusLabel1";
             // 
             // statusStrip2
@@ -204,10 +199,10 @@
             this.statusStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 303);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 470);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.statusStrip2.Size = new System.Drawing.Size(1049, 22);
+            this.statusStrip2.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
+            this.statusStrip2.Size = new System.Drawing.Size(1574, 30);
             this.statusStrip2.TabIndex = 12;
             this.statusStrip2.Text = "statusStrip2";
             // 
@@ -215,71 +210,65 @@
             // 
             this.toolStripProgressBar1.AutoSize = false;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(600, 16);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(900, 22);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(260, 58);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Location = new System.Drawing.Point(390, 89);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(80, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
             this.numericUpDown1.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 64);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(16, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 14;
             this.label5.Text = "Image";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(167, 62);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(250, 95);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.Size = new System.Drawing.Size(92, 20);
             this.label6.TabIndex = 15;
             this.label6.Text = "Conv 1 filter";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(684, 62);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(1026, 95);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 13);
+            this.label7.Size = new System.Drawing.Size(145, 20);
             this.label7.TabIndex = 16;
             this.label7.Text = "Convolution Output";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(344, 62);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(516, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.Size = new System.Drawing.Size(92, 20);
             this.label8.TabIndex = 19;
             this.label8.Text = "Conv 2 filter";
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(430, 58);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown2.Location = new System.Drawing.Point(645, 89);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(80, 20);
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 26);
             this.numericUpDown2.TabIndex = 18;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(340, 77);
+            this.pictureBox4.Location = new System.Drawing.Point(510, 118);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(170, 170);
+            this.pictureBox4.Size = new System.Drawing.Size(255, 262);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
@@ -287,38 +276,56 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(514, 62);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(771, 95);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.Size = new System.Drawing.Size(92, 20);
             this.label9.TabIndex = 22;
             this.label9.Text = "Conv 3 filter";
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(600, 58);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown3.Location = new System.Drawing.Point(900, 89);
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(80, 20);
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 26);
             this.numericUpDown3.TabIndex = 21;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(510, 77);
+            this.pictureBox5.Location = new System.Drawing.Point(765, 118);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(170, 170);
+            this.pictureBox5.Size = new System.Drawing.Size(255, 262);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 20;
             this.pictureBox5.TabStop = false;
             // 
+            // errlbl
+            // 
+            this.errlbl.AutoSize = true;
+            this.errlbl.Location = new System.Drawing.Point(1488, 66);
+            this.errlbl.Name = "errlbl";
+            this.errlbl.Size = new System.Drawing.Size(60, 20);
+            this.errlbl.TabIndex = 24;
+            this.errlbl.Text = "label10";
+            // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.Location = new System.Drawing.Point(1315, 66);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(129, 20);
+            this.error.TabIndex = 23;
+            this.error.Text = "Rand Dub Count";
+            // 
             // TestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::nnPlay.Properties.Resources.Top_0261;
-            this.ClientSize = new System.Drawing.Size(1049, 325);
+            this.ClientSize = new System.Drawing.Size(1574, 500);
+            this.Controls.Add(this.errlbl);
+            this.Controls.Add(this.error);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.pictureBox5);
@@ -342,7 +349,6 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TestForm";
             this.Text = "TestForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -388,5 +394,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label errlbl;
+        private System.Windows.Forms.Label error;
     }
 }
